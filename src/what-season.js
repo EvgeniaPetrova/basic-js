@@ -16,7 +16,7 @@ function getSeason(date) {
     return 'Unable to determine the time of year!';
   }
   if (date instanceof Date) {
-    if (Object.prototype.toString.call(date) !== '[object Date]') {
+    if (Object.prototype.toString.call(date) !== '[object Date]' || Object.getOwnPropertyNames(date).length > 0) {
       throw new Error ('Invalid date!')
     }
     let month = date.getMonth();
@@ -39,7 +39,7 @@ function getSeason(date) {
         return 'autumn';
             }
   } else {
-  throw new Error ('Invalid date!');
+    throw new Error ('Invalid date!');
   }
 }
 
